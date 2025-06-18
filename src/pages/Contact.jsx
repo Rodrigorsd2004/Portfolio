@@ -65,7 +65,7 @@ export default function Contact() {
 
       {/* WhatsApp */}
       <motion.a
-        href="https://wa.me/5599999999999?text=Olá%20Rodrigo!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
+        href="https://wa.me/5514998277584?text=Olá%20Rodrigo!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05 }}

@@ -114,7 +114,7 @@ export default function About() {
 
       <div className="flex justify-center gap-8 mt-4">
         <motion.a
-          href="https://github.com/seuusuario"
+          href="https://github.com/Rodrigorsd2004"
           target="_blank"
           rel="noreferrer"
           title="GitHub"
@@ -128,7 +128,7 @@ export default function About() {
           <SiGithub className="text-3xl dark:text-white text-gray-800 transition-transform" />
         </motion.a>
         <motion.a
-          href="https://linkedin.com/in/seuusuario"
+          href="https://www.linkedin.com/in/rodrigo-rocha-59b653322/"
           target="_blank"
           rel="noreferrer"
           title="LinkedIn"

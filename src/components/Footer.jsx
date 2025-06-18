@@ -21,7 +21,7 @@ export default function Footer() {
         {/* Links sociais */}
         <div className="flex items-center justify-center gap-6">
           <a
-            href="https://github.com/seuusuario"
+            href="https://github.com/Rodrigorsd2004"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-transform hover:scale-125"
@@ -29,7 +29,7 @@ export default function Footer() {
             <SiGithub size={24} />
           </a>
           <a
-            href="https://linkedin.com/in/seuusuario"
+            href="https://www.linkedin.com/in/rodrigo-rocha-59b653322/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-transform hover:scale-125"
