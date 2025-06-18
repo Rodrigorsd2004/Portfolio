@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Oculta scrollbar no Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+/* Garante que o conteúdo role normalmente */
+body {
+  -ms-overflow-style: none;  
+}
+
+
+/* Animações */
+
+@keyframes float-wiggle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(1px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-1px) rotate(-1deg);
+  }
+}
+
+.animate-wiggle {
+  animation: float-wiggle 2.5s ease-in-out infinite;
+  display: inline-block;
+}
