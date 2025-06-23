@@ -26,9 +26,7 @@ const techList = [
   { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
   { name: "Docker", icon: <SiDocker className="text-blue-400" /> },
   { name: "Git", icon: <SiGit className="text-orange-500" /> },
-  { name: "GitHub", icon: <SiGithub className="dark:text-white" /> },
   { name: "RESTful APIs", icon: <SiApollographql className="text-purple-500" /> },
-  { name: "LinkedIn", icon: <SiLinkedin className="text-blue-700" /> },
 ];
 
 const fade = {
