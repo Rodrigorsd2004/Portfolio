@@ -78,10 +78,7 @@ export default function Home() {
               initial="visible"
               animate={hover ? "gap" : ["visible", "loop"]}
               className="inline-block"
-              style={{
-                zIndex: 30,
-                transformOrigin: "center bottom",
-              }}
+              style={{ zIndex: 30, transformOrigin: "center bottom" }}
             >
               {letra}
             </motion.span>
@@ -145,10 +142,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          whileHover={{
-            scale: 1.08,
-            y: -4,
-          }}
+          whileHover={{ scale: 1.08, y: -4 }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <Link

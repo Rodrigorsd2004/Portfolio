@@ -16,7 +16,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      if (window.innerWidth >= 768) {
+        setScrolled(window.scrollY > 20);
+      }
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -36,65 +40,101 @@ export default function Navbar() {
     document.documentElement.classList.toggle("dark", newTheme);
   };
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
-  // Estilo de texto baseado no tema + scroll
   const getTextColor = () => {
-    if (!scrolled) return "text-white";
+    if (window.innerWidth >= 768 && !scrolled) return "text-white";
     return dark ? "text-white" : "text-black";
   };
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/10 dark:bg-gray-900/70 backdrop-blur-md shadow-md"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        window.innerWidth >= 768
+          ? scrolled
+            ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
+            : "bg-transparent"
           : "bg-transparent"
       }`}
-      role="navigation"
-      aria-label="Barra de navegação"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-center items-center relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+        
+        {/* Botão Mobile totalmente transparente */}
         <button
-          onClick={toggleMenu}
-          className={`md:hidden ${getTextColor()} absolute left-6`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          className={`md:hidden z-50 ${getTextColor()} 
+            bg-transparent rounded-full p-2 
+            transition-transform hover:scale-110`}
           aria-label="Abrir menu"
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        <ul
-          className={`md:flex md:gap-6 md:items-center text-sm font-medium absolute md:static top-16 left-0 w-full md:w-auto justify-center transition-all duration-300 ease-in-out ${
-            menuOpen ? "block" : "hidden"
-          } ${scrolled ? "" : "bg-transparent"} ${getTextColor()}`}
-        >
-          {[
-            { href: "#inicio", label: "Início", icon: <Home size={16} /> },
-            { href: "#sobre", label: "Sobre", icon: <User size={16} /> },
-            { href: "#projetos", label: "Projetos", icon: <Folder size={16} /> },
-            { href: "#contato", label: "Contato", icon: <Mail size={16} /> },
+        {/* Menu Desktop */}
+        <ul className={`hidden md:flex items-center gap-10 mx-auto font-medium text-xs ${getTextColor()}`}>
+          {[{ href: "#inicio", label: "Início", icon: <Home size={18} /> },
+            { href: "#sobre", label: "Sobre", icon: <User size={18} /> },
+            { href: "#projetos", label: "Projetos", icon: <Folder size={18} /> },
+            { href: "#contato", label: "Contato", icon: <Mail size={18} /> },
           ].map(({ href, label, icon }) => (
-            <li key={label} className="p-4 md:p-0">
+            <li key={label}>
               <a
                 href={href}
-                className="flex items-center gap-2 transition hover:text-teal-400"
+                className="flex items-center gap-2 hover:text-teal-400 transition"
               >
                 {icon} {label}
               </a>
             </li>
           ))}
-
-          <li className="p-4 md:p-0">
+          <li>
             <button
               onClick={toggleTheme}
               className="flex items-center gap-2 hover:text-teal-400 transition"
-              aria-label="Alternar tema"
             >
-              {dark ? <Moon size={16} /> : <Sun size={16} />}
+              {dark ? <Moon size={18} /> : <Sun size={18} />}
               {dark ? "Dark" : "Light"}
             </button>
           </li>
         </ul>
+
+        {/* Menu Mobile lateral */}
+        <div
+          className={`fixed top-0 right-0 w-[80%] max-w-xs h-full 
+            bg-gradient-to-b from-gray-900/90 to-gray-800/90 
+            backdrop-blur-2xl border-l border-white/10 
+            shadow-2xl transform transition-transform duration-300 
+            z-50 rounded-l-xl ${
+              menuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+        >
+          <ul className="flex flex-col gap-6 px-6 pt-24 text-base font-medium text-white">
+            {[{ href: "#inicio", label: "Início", icon: <Home size={20} /> },
+              { href: "#sobre", label: "Sobre", icon: <User size={20} /> },
+              { href: "#projetos", label: "Projetos", icon: <Folder size={20} /> },
+              { href: "#contato", label: "Contato", icon: <Mail size={20} /> },
+            ].map(({ href, label, icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-3 hover:text-teal-500 transition"
+                >
+                  {icon} {label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <button
+                onClick={() => {
+                  toggleTheme();
+                  setMenuOpen(false);
+                }}
+                className="flex items-center gap-3 hover:text-teal-500 transition"
+              >
+                {dark ? <Moon size={20} /> : <Sun size={20} />}
+                {dark ? "Dark" : "Light"}
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
