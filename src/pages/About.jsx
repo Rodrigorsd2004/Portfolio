@@ -72,7 +72,7 @@ export default function About() {
           scale={1.05}
           tiltMaxAngleX={12}
           tiltMaxAngleY={12}
-          className="mx-auto"
+          className="mx-auto overflow-hidden rounded-2xl"
         >
           <motion.div
             variants={fade}

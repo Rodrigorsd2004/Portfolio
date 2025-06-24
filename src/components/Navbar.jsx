@@ -45,6 +45,17 @@ export default function Navbar() {
     return dark ? "text-white" : "text-black";
   };
 
+  useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [menuOpen]);
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${

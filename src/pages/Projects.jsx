@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { projetos } from "../utils/projects";
 import ProjectCard from "../components/ProjectCard";
+import ProjectPreview from "../components/ProjectPreview";
 
 export default function Projects() {
+  const [previewData, setPreviewData] = useState(null);
+
   return (
     <motion.section
       id="projetos"
@@ -11,7 +14,7 @@ export default function Projects() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="min-h-screen px-6 py-20 bg-gradient-to-br from-white via-slate-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-100"
+      className="relative min-h-screen px-6 py-20 bg-gradient-to-br from-white via-slate-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-100"
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
@@ -25,9 +28,18 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {projetos.map((projeto, index) => (
-          <ProjectCard key={index} projeto={projeto} index={index} />
+          <ProjectCard
+            key={index}
+            projeto={projeto}
+            index={index}
+            onPreview={setPreviewData}
+          />
         ))}
       </div>
+
+      {previewData && (
+  <ProjectPreview projeto={previewData} onClose={() => setPreviewData(null)} />
+)}
     </motion.section>
   );
 }
