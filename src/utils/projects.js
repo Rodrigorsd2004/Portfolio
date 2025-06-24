@@ -4,8 +4,8 @@ export const projetos = [
   {
     titulo: "Portfólio Pessoal",
     descricao: "Portfólio moderno com animações suaves, design responsivo e apresentação de projetos e tecnologias.",
-    imagem: "/public/portfolio.jpg",
-    video: "/public/videos/Portfolio.mp4",
+    imagem: "/portfolio.jpg",
+    video: "/videos/Portfolio.mp4",
     tecnologias: ["React", "Node.js", "Prisma", "Tailwind", "JavaScript"],
     link: "#",
     github: "https://github.com/Rodrigorsd2004/Portfolio",
