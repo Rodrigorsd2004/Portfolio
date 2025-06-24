@@ -2,13 +2,13 @@ import { video } from "framer-motion/client";
 
 export const projetos = [
   {
-    titulo: "Dashboard Admin",
-    descricao: "Painel completo com autenticação, gráficos interativos, gerenciamento de usuários e permissões.",
-    imagem: "/public/teste.jpg",
-    video: "/public/videos/dashboard-admin.mp4",
+    titulo: "Portfólio Pessoal",
+    descricao: "Portfólio moderno com animações suaves, design responsivo e apresentação de projetos e tecnologias.",
+    imagem: "/public/portfolio.jpg",
+    video: "/public/videos/Portfolio.mp4",
     tecnologias: ["React", "Node.js", "Prisma", "Tailwind", "JavaScript"],
     link: "#",
-    github: "#",
+    github: "https://github.com/Rodrigorsd2004/Portfolio",
   },
   {
     titulo: "Clone Netflix",
