@@ -96,7 +96,7 @@ export default function Home() {
       >
         <Typewriter
           words={[
-            "Desenvolvedor Front-End apaixonado por UI.",
+            "Desenvolvedor Full-Stack apaixonado por soluções e UI.",
             "Interfaces modernas e intuitivas.",
             "Experiências digitais com impacto real.",
           ]}
